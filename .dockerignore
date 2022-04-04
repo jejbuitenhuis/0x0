@@ -1,0 +1,10 @@
+__pycache__/
+mnt/
+README.rst
+Dockerfile
+docker-compose.yaml
+LICENSE
+.mailmap
+.git/
+.gitignore
+tests/
