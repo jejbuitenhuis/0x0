@@ -1,0 +1,23 @@
+# based on https://code.steph.tools/steph/0x0/src/branch/master/docker-compose.yml
+version: "3"
+
+services:
+  nullptr:
+    build: .
+    ports:
+      - 10001:8080
+    volumes:
+      - ./mnt/up:/app/up
+    depends_on:
+      - database
+
+  database:
+    image: "postgres:14.2-alpine"
+    environment:
+      - "POSTGRES_USER=toor"
+      - "POSTGRES_PASSWORD=toor"
+      - "POSTGRES_DB=db"
+    expose:
+      - 5432
+    volumes:
+      - ./mnt/db:/var/lib/postgresql/data
